@@ -59,9 +59,9 @@ public class Main {
         for (String str : s1) {
             StringBuilder sb = new StringBuilder();
             Pattern pattern1 = Pattern.compile(
-                    "one|two|three|four|five|six|seven|eight|nine|\\d");
+            "one|two|three|four|five|six|seven|eight|nine|\\d");
             Pattern pattern2 = Pattern.compile(
-                    "one(ight)?|two(ne)?|three|four|five|six|seven(ine)?|eight(wo)?|nine|\\d");
+            "one(ight)?|two(ne)?|three(ight)?|four|five(ight)?|six|seven(ine)?|eight(wo|hree)?|nine(ight)?|\\d");
             Matcher matcher1 = pattern1.matcher(str);
             Matcher matcher2 = pattern2.matcher(str);
             String lastMatch = null;
@@ -80,16 +80,22 @@ public class Main {
                     .replace("two", "2")
                     .replace("tw1", "1")
                     .replace("three", "3")
+                    .replace("3ight", "8")
                     .replace("four", "4")
                     .replace("five", "5")
+                    .replace("5ight", "8")
                     .replace("six", "6")
                     .replace("seven", "7")
                     .replace("7ine", "9")
                     .replace("eight", "8")
-                    .replace("nine", "9");
-
-            int num = Integer.parseInt(str);
-            System.out.print(num + " | sum is: "+sum+" + "+num+" = ");
+                    .replace("eigh3", "3")
+                    .replace("nine", "9")
+                    .replace("nin8", "8");
+            int num = 0;
+            if (!sb.isEmpty()) {
+                num = Integer.parseInt(str);
+            }
+            System.out.print(num + " | sum is: " + sum + " + " + num + " = ");
             sum += num;
             System.out.println(sum);
         }

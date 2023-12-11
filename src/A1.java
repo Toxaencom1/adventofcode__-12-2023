@@ -1,7 +1,7 @@
 public class A1 {
     //57345 должно быть
     public static String s = //"two1nine\n" +
-            "ytrseveninegsdf"; //+
+            "ytrasdegfdfghjcvbsdf"; //+
 //            "eightwothree\n" +
 //            "abcone2threexyz\n" +
 //            "xtwone3four\n" +
